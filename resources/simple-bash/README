@@ -1,0 +1,8 @@
+Deploy:
+
+oc new-project daz-demo
+oc apply -k .
+
+Remove:
+
+oc delete -k .

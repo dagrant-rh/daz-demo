@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: daz-demo-app
+  name: daz-demo-app
+  namespace: daz-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: daz-demo-app
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: daz-demo-app
+    spec:
+      volumes:
+      - name: log-vol
+        persistentVolumeClaim:
+          claimName: daz-demo-pvc
+      containers:
+      - image: registry.redhat.io/ubi8/ubi
+        name: ubi
+        command: ['/bin/bash','-c']
+        args: ["while true; do echo working | tee -a /mnt/app.log; sleep 5; done"]
+        resources: {}
+        volumeMounts:
+        - name: log-vol
+          mountPath: "/mnt"
+        
+#deployment.spec.template.spec.volumes.persistentVolumeClaim.claimName
+
