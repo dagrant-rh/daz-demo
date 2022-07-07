@@ -1,6 +1,9 @@
 #!/bin/bash
 
 DB="/apps/data"
+VERSION="1.1"
+
+echo -e "Script Path: $(readlink -f $0)\nVersion: $VERSION"
 
 while true
 do
