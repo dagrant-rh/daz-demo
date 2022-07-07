@@ -1,0 +1,9 @@
+FROM registry.redhat.io/ubi8/ubi
+MAINTAINER dagrant@redhat.com
+
+RUN mkdir -p /apps/bin
+COPY app.sh /apps/bin
+COPY data   /apps/data
+RUN chmod u+x /apps/bin/app.sh
+
+CMD ["/apps/bin/app.sh"]

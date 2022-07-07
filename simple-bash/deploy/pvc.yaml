@@ -2,7 +2,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: daz-demo-pvc
-  namespace: daz-demo
+  namespace: daz-demos-simple-bash
 spec:
   accessModes:
     - ReadWriteMany
