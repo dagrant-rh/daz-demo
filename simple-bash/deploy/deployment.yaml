@@ -22,7 +22,7 @@ spec:
         persistentVolumeClaim:
           claimName: daz-demo-pvc
       containers:
-      - image: quay.io/rh_ee_dagrant/simple-bash:1.0 
+      - image: quay.io/rh_ee_dagrant/simple-bash:latest
         name: simple-bash
         resources: {}
         volumeMounts:
