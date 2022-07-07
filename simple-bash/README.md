@@ -33,7 +33,8 @@ git clone https://github.com/dagrant-rh/daz-demos.git
 cd daz-demos/simple-bash
 oc login -u <username> -p <password> https://<OCP API URL>:6443
 oc apply -k deploy/
-oc logs -f deployment/simple-bash # To view logs
+oc logs -f deployment/simple-bash -n daz-demos-simple-bash # to view logs
+
 ```
 
 To tear down the app:
