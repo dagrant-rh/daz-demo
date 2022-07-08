@@ -27,4 +27,4 @@ spec:
         resources: {}
         volumeMounts:
         - name: log-vol
-          mountPath: "/mnt"
+          mountPath: "/apps/logs"
