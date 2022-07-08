@@ -49,15 +49,11 @@ To build the container image and push to your own registry:
 ```
 git clone https://github.com/dagrant-rh/daz-demos.git
 cd daz-demos/simple-bash/src
-export REGISTRY="<registry eg. quay.io>"
-export USERNAME="<your registry username>"
-export REPOSITORY="simple-bash"
-export TAG="1.0"
 
 podman login quay.io # Enter your registry username and password when prompted
 podman login registry.rehat.io # Enter your registry username and password when prompted
 
-./BuildPush.sh
+./BuildPush.sh # Follow prompts
 
 ```
 
