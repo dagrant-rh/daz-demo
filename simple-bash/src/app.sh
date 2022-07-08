@@ -38,6 +38,6 @@ do
   AUDIT_STATUS=$(echo -e "Success\nFailure" | shuf -n1)
   LOG_STRING="Timestamp=\"$TIMESTAMP\" Host=\"$HOSTNAME\" pid=\"$$\" Event=\"$AUDIT_EVENT\" Status=\"$AUDIT_STATUS\" User=\"$FIRST_NAME $LAST_NAME\""
   JSON_LOG_STRING="{\"audit-event\":{\"timestamp\":\"$TIMESTAMP\",\"host\":\"$HOSTNAME\",\"pid\":\"$$\",\"event\":\"$AUDIT_EVENT\",\"status\":\"$AUDIT_STATUS\",\"user\":{\"firstname\":\"$FIRST_NAME\",\"surname\":\"$LAST_NAME\"}}}"
-  echo $JSON_LOG_STRING | jq -c . | tee -a $AUDIT_LOG_DIR/audit-event-log.json
+  echo $JSON_LOG_STRING | tee -a $AUDIT_LOG_DIR/audit-event-log.json
   sleep 5
 done
