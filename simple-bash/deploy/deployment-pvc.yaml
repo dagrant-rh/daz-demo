@@ -18,8 +18,9 @@ spec:
         app: simple-bash 
     spec:
       volumes:
-      - emptyDir: {}
-        name: logs-dir
+      - name: log-vol
+        persistentVolumeClaim:
+          claimName: daz-demo-pvc
       containers:
       - image: quay.io/rh_ee_dagrant/simple-bash:latest
         name: simple-bash
