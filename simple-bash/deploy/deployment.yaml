@@ -4,7 +4,6 @@ metadata:
   labels:
     app: simple-bash 
   name: simple-bash
-  namespace: daz-demos-simple-bash 
 spec:
   replicas: 1
   selector:
@@ -19,7 +18,7 @@ spec:
     spec:
       volumes:
       - emptyDir: {}
-        name: logs-dir
+        name: log-vol
       containers:
       - image: quay.io/rh_ee_dagrant/simple-bash:latest
         name: simple-bash
