@@ -15,7 +15,7 @@ spec:
           - "/bin/bash"
           - "-c"
           - |
-            echo "Running pre-sync job, sleeping for 10s ...
+            echo "Running pre-sync job, sleeping for 10s ..."
             sleep 10
         resources: {}
       restartPolicy: Never
