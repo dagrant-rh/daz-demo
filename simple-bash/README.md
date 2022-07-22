@@ -32,7 +32,7 @@ To deploy:
 git clone https://github.com/dagrant-rh/daz-demos.git
 cd daz-demos/simple-bash
 oc login -u <username> -p <password> https://<OCP API URL>:6443
-oc apply -k deploy/
+oc apply -k deploy/base/ # or deploy/overlays/<dev|test|prod> for environment specific kustomization examples
 oc logs -f deployment/simple-bash -n daz-demos-simple-bash # to view logs
 
 ```

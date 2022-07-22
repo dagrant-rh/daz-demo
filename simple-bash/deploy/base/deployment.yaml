@@ -2,29 +2,27 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: simple-bash 
+    app: simple-bash
   name: simple-bash
-  namespace: daz-demos-simple-bash 
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: simple-bash 
+      app: simple-bash
   strategy: {}
   template:
     metadata:
-      creationTimestamp: null
       labels:
-        app: simple-bash 
+        app: simple-bash
     spec:
       volumes:
       - name: log-vol
-        persistentVolumeClaim:
-          claimName: daz-demo-pvc
+        emptyDir: {} 
       containers:
-      - image: quay.io/rh_ee_dagrant/simple-bash:latest
+      - image: quay.io/rh_ee_dagrant/simple-bash:1.2
         name: simple-bash
         resources: {}
         volumeMounts:
         - name: log-vol
-          mountPath: "/apps/logs"
+          mountPath: /apps/logs
+status: {}

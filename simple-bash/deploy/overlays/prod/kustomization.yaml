@@ -1,0 +1,12 @@
+resources:
+- ../../base
+patchesJson6902:
+  - target:
+      version: v1
+      group: apps
+      kind: Deployment
+      name: simple-bash 
+    patch: |-
+      - op: add 
+        path: /metadata/labels/environment
+        value: prod 
