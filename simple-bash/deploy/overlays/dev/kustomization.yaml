@@ -1,7 +1,7 @@
 resources:
 - ../../base
-- job-pre-deployment.yaml
-- job-post-deployment.yaml
+- pre-deployment-job.yaml
+- post-deployment-job.yaml
 patchesJson6902:
   - target:
       version: v1

@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  name: pre-sync-job 
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+spec:
+  template:
+    spec:
+      containers:
+      - image: registry.redhat.io/ubi8
+        name: pre-sync-job
+        command: 
+          - "/bin/bash"
+          - "-c"
+          - |
+            echo "Running pre-sync job, sleeping for 10s ...
+            sleep 10
+        resources: {}
+      restartPolicy: Never
+status: {}
