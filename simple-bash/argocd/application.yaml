@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: simple-bash 
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: simple-bash 
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: simple-bash/deploy/overlays/dev
+    repoURL: https://github.com/dagrant-rh/daz-demos
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+    syncOptions:
+    - CreateNamespace=true

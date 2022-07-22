@@ -2,4 +2,6 @@ kind: Namespace
 apiVersion: v1
 metadata:
   name: simple-bash        
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
 spec: {}

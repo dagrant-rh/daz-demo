@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  name: pre-deployment-job 
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  template:
+    spec:
+      containers:
+      - image: registry.redhat.io/ubi8
+        name: pre-deployment-action 
+        command: 
+          - "/bin/bash"
+          - "-c"
+          - |
+            echo "Running pre-deployment job, sleeping for 10s ...
+            sleep 10"
+        resources: {}
+      restartPolicy: Never
+status: {}

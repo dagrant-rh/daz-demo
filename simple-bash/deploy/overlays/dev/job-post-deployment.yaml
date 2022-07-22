@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: post-deployment-job 
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
+spec:
+  template:
+    spec:
+      containers:
+      - image: registry.redhat.io/ubi8
+        name: post-deployment-action 
+        command: 
+          - "/bin/bash"
+          - "-c"
+          - |
+            echo "Running post-deployment job, sleeping for 10s ...
+            sleep 10"
+        resources: {}
+      restartPolicy: Never
+status: {}
